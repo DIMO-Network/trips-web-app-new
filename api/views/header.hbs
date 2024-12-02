@@ -1,0 +1,24 @@
+<div class="content-wrapper">
+    <div class="header">
+        <img src="/static/whole_logo.png" alt="DIMO Logo" class="dimo-logo">
+    </div>
+
+    <div class="sidebar">
+        <a href="#" id="my-vehicles-link" onclick="toggleView('my-vehicles'); return false;" class="sidebar-link">My Vehicles</a>
+        <a href="#" id="shared-vehicles-link" onclick="toggleView('shared-vehicles'); return false;" class="sidebar-link">Vehicles Shared With Me</a>
+    </div>
+
+    <div class="title-container">
+        <div class="title-and-wallet">
+            <h1 id="page-title">{{Title}}</h1>
+            <div class="wallet-address-container">
+                <span class="eth-address">Connected wallet: {{EthAddress}}</span>
+            </div>
+        </div>
+
+        <div class="session-buttons">
+            <a href="/account" class="session-button">Session Credentials</a>
+            <a href="/streamr" class="session-button">Live Streamr</a>
+            <a href="/give-feedback" class="session-button" target="_blank">Give us Feedback!</a>
+        </div>
+    </div>

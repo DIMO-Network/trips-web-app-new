@@ -72,8 +72,9 @@ func main() {
 	// View routes (protected)
 	app.Get("/account", controllers.AuthMiddleware(), ac.MyAccount)
 	app.Get("/vehicles/me", controllers.AuthMiddleware(), vc.HandleGetVehicles)
+	app.Get("/vehicles/new", controllers.AuthMiddleware(), vc.HandleNewVehicle)
 	app.Get("/vehicles/:tokenid/signals", controllers.AuthMiddleware(), vc.HandleVehicleSignals)
-	app.Get("/vehicles/:tokenid/history", vc.HandleGetHistoricalData)
+	app.Get("/vehicles/:tokenid/history", controllers.AuthMiddleware(), vc.HandleGetHistoricalData)
 
 	app.Get("/vehicles/:tokenid/trips", controllers.AuthMiddleware(), tc.HandleTripsList)
 	app.Get("/give-feedback", controllers.AuthMiddleware(), controllers.HandleGiveFeedback(&settings))
@@ -101,6 +102,7 @@ func main() {
 
 		return controllers.HandleMapDataForTrip(c, &settings, tripID, startTime, endTime, estimatedStart)
 	})
+	app.Post("/api/decode-vin", controllers.AuthMiddleware(), vc.HandleDecodeVIN)
 
 	// Public Routes
 	app.Post("/auth/web3/generate_challenge", func(c *fiber.Ctx) error {

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{Title}}</title>
+    <link rel="stylesheet" href="/static/common-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="content-wrapper">
+    <div class="header">
+        <img src="/static/whole_logo.png" alt="DIMO Logo" class="dimo-logo">
+    </div>
+
+    <div class="sidebar">
+        <a href="#" id="my-vehicles-link" onclick="toggleView('my-vehicles'); return false;" class="sidebar-link">My Vehicles</a>
+        <a href="#" id="shared-vehicles-link" onclick="toggleView('shared-vehicles'); return false;" class="sidebar-link">Vehicles Shared With Me</a>
+    </div>
+
+    <div class="title-container">
+        <div class="title-and-wallet">
+            <h1 id="page-title">{{Title}}</h1>
+            <div class="wallet-address-container">
+                <span class="eth-address">Connected wallet: {{EthAddress}}</span>
+            </div>
+        </div>
+
+        <div class="session-buttons">
+            <a href="/account" class="session-button">Session Credentials</a>
+            <a href="/streamr" class="session-button">Live Streamr</a>
+            <a href="/give-feedback" class="session-button" target="_blank">Give us Feedback!</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        {{embed}}
+    </div>
+</div>
+
+
+
+<footer style="text-align: center; padding: 20px 0; background-color: #222; color: #fff;">
+    <a href="https://dimo.zone/legal/privacy-policy" class="footer-link" target="_blank">Privacy Policy</a> |
+    <a href="https://dimo.zone/legal/terms-of-use" class="footer-link" target="_blank">Terms of Use</a>
+</footer>
+</body>
+</html>

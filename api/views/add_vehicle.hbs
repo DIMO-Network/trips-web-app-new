@@ -1,0 +1,17 @@
+<div id="add-vehicle" style="display: none;">
+    <h1>Add Vehicle</h1>
+    <form>
+        <label for="vin">VIN</label>
+        <input type="text" name="vin" id="vin" placeholder="VIN" />
+        <button type="submit">Add Vehicle</button>
+    </form>
+    <span id="add-vehicle-status"></span>
+</div>
+<script type="text/javascript">
+    //todo:
+    // 1. on submit form, call the decode-vin endpoint, update status, disable submit btn
+    // 2. check the response for definition id, if not 200 or not present show error in status, re-enable submit btn
+    // 3. if success, call mint vehicle worker api endpoint with the definitionId, update the status
+    // 4. if success, call devices-api updatevin patch endpoint
+    // 5. if success, update status and hide form - vehicle added!
+</script>

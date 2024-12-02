@@ -3,217 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>{{Title}}</title>
+    <link rel="stylesheet" href="/static/common-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    <style>
-        @font-face {
-            font-family: 'Euclid';
-            src: url('/static/EuclidCircularA-Regular.otf') format('opentype');
-            font-weight: normal;
-            font-style: normal;
-        }
-        body {
-            font-family: 'Euclid', sans-serif;
-            background-color: #000000;
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-
-        .title-container,
-        .sidebar,
-        .main-content {
-            box-sizing: border-box;
-        }
-
-        .sidebar {
-            position: fixed;
-            left: 190px;
-            width: 250px;
-            height: calc(100vh - 90px);
-            background-color: #000;
-            padding: 20px;
-            z-index: 2;
-        }
-
-        .main-content {
-            margin-top: 20px;
-            margin-left: 250px;
-            position: relative;
-        }
-
-
-        .sidebar a, .sidebar button {
-            color: #ffffff;
-            text-decoration: none;
-            line-height: 2.5;
-            display: block;
-            transition: color 0.3s;
-            background: none;
-            border: none;
-            text-align: left;
-            padding: 0;
-        }
-
-        .sidebar button:hover, .sidebar a:hover {
-            color: #30D5C8;
-        }
-
-        .vehicle-card {
-            background-color: #222;
-            margin-bottom: 10px;
-            margin-right: 200px;
-            margin-left: 240px;
-            padding: 15px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            z-index: 1;
-        }
-
-        .vehicle-card > * {
-            flex: 1;
-        }
-
-        .vehicle-card h2 {
-            color: #30D5C8;
-            margin-top: 0;
-        }
-        .vehicle-card p {
-            margin: 0;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .vehicle-card p:hover {
-            color: #30D5C8;
-        }
-
-
-        .session-button {
-            background-color: white;
-            color: #000000;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 16px;
-            text-decoration: none;
-            padding: 10px 20px;
-            display: inline-block;
-            margin-right: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .session-button:hover {
-            background-color: #35deda;
-        }
-
-        .title-and-wallet {
-            display: block;
-        }
-
-        .session-buttons {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .title-container {
-            background-color: #000;
-            color: #fff;
-            padding: 20px;
-            margin-left: 475px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .vehicle-list a {
-            display: inline;
-            margin-right: 10px;
-        }
-
-        h1 {
-            color: #30D5C8;
-        }
-        .link-text {
-            color: #30D5C8;
-            text-decoration: none;
-        }
-        .sidebar-link {
-            color: #ffffff;
-            text-decoration: none;
-            display: block;
-            padding: 10px 0;
-            transition: color 0.3s;
-        }
-
-        .sidebar-link.active {
-            color: #30D5C8;
-        }
-
-        .eth-address {
-            color: #fff;
-            font-size: 16px;
-        }
-        .header {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-        }
-
-        .dimo-logo {
-            height: 90px;
-        }
-        .footer-link {
-            color: #30D5C8;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        .footer-link:hover {
-            text-decoration: underline;
-        }
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
-
-        .content-wrapper {
-            min-height: 100%;
-            padding-bottom: 100px;
-            box-sizing: border-box;
-        }
-
-        footer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            bottom: 50px;
-            width: 100%;
-            height: 40px;
-            z-index: 999;
-            position: fixed;
-        }
-
-    </style>
     <script>
         function toggleView(viewId) {
+            // Hide all vehicle lists
             document.querySelectorAll('.vehicle-list').forEach(function(div) {
                 div.style.display = 'none';
             });
 
+            // Show the selected view
             document.getElementById(viewId).style.display = 'block';
 
+            // Update active link styles
             document.querySelectorAll('.sidebar-link').forEach(function(link) {
                 link.classList.remove('active');
             });
 
+            // Update the page title and active link
             var title = document.getElementById('page-title');
             if (viewId === 'my-vehicles') {
                 document.getElementById('my-vehicles-link').classList.add('active');
@@ -221,22 +31,18 @@
             } else if (viewId === 'shared-vehicles') {
                 document.getElementById('shared-vehicles-link').classList.add('active');
                 title.textContent = 'Vehicles Shared With Me';
+            } else if (viewId === 'add-vehicle') {
+                document.getElementById('add-vehicle-link').classList.add('active');
+                title.textContent = 'Add a Vehicle';
             }
         }
+
 
         document.addEventListener('DOMContentLoaded', function() {
             toggleView('my-vehicles');
         });
 
-        function adjustSidebarTop() {
-            var titleContainerHeight = document.querySelector('.title-container').offsetHeight;
-            var sidebar = document.querySelector('.sidebar');
-            sidebar.style.top = titleContainerHeight + 'px';
-        }
 
-        document.addEventListener('DOMContentLoaded', adjustSidebarTop);
-
-        window.onresize = adjustSidebarTop;
 
     </script>
 </head>
@@ -246,10 +52,6 @@
     <img src="/static/whole_logo.png" alt="DIMO Logo" class="dimo-logo">
 </div>
 
-<div class="sidebar">
-    <a href="#" id="my-vehicles-link" onclick="toggleView('my-vehicles'); return false;" class="sidebar-link">My Vehicles</a>
-    <a href="#" id="shared-vehicles-link" onclick="toggleView('shared-vehicles'); return false;" class="sidebar-link">Vehicles Shared With Me</a>
-</div>
 
 <div class="title-container">
     <div class="title-and-wallet">
@@ -266,45 +68,62 @@
     </div>
 </div>
 
-<div class="main-content">
-    <div id="my-vehicles" class="vehicle-list">
-        {{#if Vehicles}}
-            {{#each Vehicles}}
-                <div class="vehicle-card">
-                    <span>{{this.Definition.make}} {{this.Definition.model}} ({{this.Definition.year}})</span>
-                    <span>Vehicle ID: {{this.TokenID}}</span>
-                    <p>
-                        <a href="/vehicles/{{this.TokenID}}/signals" class="link-text">Signal Data</a>
-                    </p>
-                    <p>
-                        <a href="/vehicles/{{this.TokenID}}/trips" class="link-text">Trips</a>
-                    </p>
-                </div>
-            {{/each}}
-        {{else}}
-            <p>No vehicles to display.</p>
-        {{/if}}
+    <div class="sidebar">
+        <a href="#" id="my-vehicles-link" onclick="toggleView('my-vehicles'); return false;" class="sidebar-link">My Vehicles</a>
+        <a href="#" id="shared-vehicles-link" onclick="toggleView('shared-vehicles'); return false;" class="sidebar-link">Vehicles Shared With Me</a>
+        <a href="#" id="add-vehicle-link" onclick="toggleView('add-vehicle'); return false;" class="sidebar-link">Add a Vehicle</a>
     </div>
 
-    <div id="shared-vehicles" class="vehicle-list" style="display: none;">
-        {{#if SharedVehicles}}
-            {{#each SharedVehicles}}
-                <div class="vehicle-card">
-                    <span>{{this.Definition.make}} {{this.Definition.model}} ({{this.Definition.year}})</span>
-                    <span>Vehicle ID: {{this.TokenID}}</span>
-                    <p>
-                        <a href="/vehicles/{{this.TokenID}}/status" class="link-text">Signal Data</a>
-                    </p>
-                    <p>
-                        <a href="/vehicles/{{this.TokenID}}/trips" class="link-text">Trips</a>
-                    </p>
-                </div>
-            {{/each}}
-        {{else}}
-            <p>No shared vehicles to display.</p>
-        {{/if}}
+    <div class="main-content">
+        <div id="my-vehicles" class="vehicle-list">
+            {{#if Vehicles}}
+                {{#each Vehicles}}
+                    <div class="vehicle-card">
+                        <span>{{this.Definition.make}} {{this.Definition.model}} ({{this.Definition.year}})</span>
+                        <span>Vehicle ID: {{this.TokenID}}</span>
+                        <p>
+                            <a href="/vehicles/{{this.TokenID}}/signals" class="link-text">Signal Data</a>
+                        </p>
+                        <p>
+                            <a href="/vehicles/{{this.TokenID}}/trips" class="link-text">Trips</a>
+                        </p>
+                    </div>
+                {{/each}}
+            {{else}}
+                <p>No vehicles to display.</p>
+            {{/if}}
+        </div>
+
+        <div id="shared-vehicles" class="vehicle-list" style="display: none;">
+            {{#if SharedVehicles}}
+                {{#each SharedVehicles}}
+                    <div class="vehicle-card">
+                        <span>{{this.Definition.make}} {{this.Definition.model}} ({{this.Definition.year}})</span>
+                        <span>Vehicle ID: {{this.TokenID}}</span>
+                        <p>
+                            <a href="/vehicles/{{this.TokenID}}/status" class="link-text">Signal Data</a>
+                        </p>
+                        <p>
+                            <a href="/vehicles/{{this.TokenID}}/trips" class="link-text">Trips</a>
+                        </p>
+                    </div>
+                {{/each}}
+            {{else}}
+                <p>No shared vehicles to display.</p>
+            {{/if}}
+        </div>
+
+        <div id="add-vehicle" class="vehicle-list" style="display: none;">
+            <h1>Add Vehicle</h1>
+            <form>
+                <label for="vin">VIN</label>
+                <input type="text" name="vin" id="vin" placeholder="VIN" />
+                <button type="submit">Add Vehicle</button>
+            </form>
+            <span id="add-vehicle-status"></span>
+        </div>
     </div>
-</div>
+
 </div>
 
 

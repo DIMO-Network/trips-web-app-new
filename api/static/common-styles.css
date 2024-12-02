@@ -208,3 +208,340 @@ div.error-message p {
     font-weight: 500; /* Makes text slightly bold */
 }
 
+
+.title-container,
+.sidebar,
+.main-content {
+    box-sizing: border-box;
+}
+
+.sidebar {
+    position: fixed;
+    left: 190px;
+    width: 250px;
+    height: calc(100vh - 90px);
+    background-color: #000;
+    padding: 20px;
+    z-index: 2;
+}
+
+.main-content {
+    margin-top: 20px;
+    margin-left: 250px;
+    position: relative;
+}
+
+
+.sidebar a, .sidebar button {
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 2.5;
+    display: block;
+    transition: color 0.3s;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 0;
+}
+
+.sidebar button:hover, .sidebar a:hover {
+    color: #30D5C8;
+}
+
+.vehicle-card {
+    background-color: #222;
+    margin-bottom: 10px;
+    margin-right: 200px;
+    margin-left: 240px;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 1;
+}
+
+.vehicle-card > * {
+    flex: 1;
+}
+
+.vehicle-card h2 {
+    color: #30D5C8;
+    margin-top: 0;
+}
+.vehicle-card p {
+    margin: 0;
+    font-size: 16px;
+    cursor: pointer;
+}
+.vehicle-card p:hover {
+    color: #30D5C8;
+}
+
+
+.session-button {
+    background-color: white;
+    color: #000000;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.session-button:hover {
+    background-color: #35deda;
+}
+
+.title-and-wallet {
+    display: block;
+}
+
+.session-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title-container {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    margin-left: 475px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vehicle-list a {
+    display: inline;
+    margin-right: 10px;
+}
+
+h1 {
+    color: #30D5C8;
+}
+.link-text {
+    color: #30D5C8;
+    text-decoration: none;
+}
+.sidebar-link {
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+    transition: color 0.3s;
+}
+
+.sidebar-link.active {
+    color: #30D5C8;
+}
+
+.eth-address {
+    color: #fff;
+    font-size: 16px;
+}
+.header {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.dimo-logo {
+    height: 90px;
+}
+.footer-link {
+    color: #30D5C8;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.content-wrapper {
+    min-height: 100%;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 50px;
+    width: 100%;
+    height: 40px;
+    z-index: 999;
+    position: fixed;
+}
+
+.dropdown-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.column-title {
+    width: 30%;
+}
+
+.centered {
+    text-align: center;
+}
+
+.container {
+    padding: 50px 70px;
+    margin-left: 200px;
+}
+
+.status-title {
+    color: #30D5C8;
+    text-align: center;
+    margin-top: -10px;
+}
+
+.status-header {
+    display: flex;
+    color: #30D5C8;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.status-card {
+    background-color: #222;
+    padding: 15px 40px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.status-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.column-title {
+    width: 30%;
+}
+
+.dropdown-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.title-and-wallet {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.title-container h1 {
+    margin: 0;
+}
+
+.sidebar {
+    position: absolute;
+    top: 157px;
+    height: auto;
+    left: 218px;
+    width: 250px;
+    background-color: #000;
+    padding: 20px;
+    z-index: 2;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-top: 50px;
+
+}
+
+.main-content {
+    margin-left: 240px;
+}
+html, body {
+    overflow: auto;
+}
+
+#add-vehicle {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#add-vehicle h1 {
+    color: #30D5C8;
+    margin-bottom: 20px;
+}
+
+#add-vehicle form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+#add-vehicle label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#add-vehicle input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#add-vehicle input[type="text"]:focus {
+    border-color: #30D5C8;
+    box-shadow: 0 0 5px rgba(48, 213, 200, 0.5);
+}
+
+#add-vehicle button {
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#add-vehicle button:hover {
+    background-color: #35deda;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

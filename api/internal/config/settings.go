@@ -18,4 +18,5 @@ type Settings struct {
 	TripsAPIBaseURL           string `yaml:"TRIPS_API_BASE_URL"`
 	UsersAPIBaseURL           string `yaml:"USERS_API_BASE_URL"`
 	TelemetryAPIURL           string `yaml:"TELEMETRY_API_URL"`
+	DecodeVINEndpoint         string `yaml:"DECODE_VIN_ENDPOINT"`
 }

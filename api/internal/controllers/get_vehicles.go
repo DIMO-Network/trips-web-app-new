@@ -105,6 +105,15 @@ func (v *VehiclesController) HandleGetVehicles(c *fiber.Ctx) error {
 	})
 }
 
+func (v *VehiclesController) HandleNewVehicle(c *fiber.Ctx) error {
+	ethAddress := c.Locals("ethereum_address").(string)
+
+	return c.Render("add_vehicle", fiber.Map{
+		"Title":      "Add a Vehicle",
+		"EthAddress": ethAddress,
+	}, "main_layout")
+}
+
 func (v *VehiclesController) HandleVehicleSignals(c *fiber.Ctx) error {
 	tokenID, err := strconv.ParseInt(c.Params("tokenid"), 10, 64)
 	if err != nil {
